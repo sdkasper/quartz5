@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lean Obsidian Terminal - Banner</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0e1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .banner {
+    width: 1100px;
+    height: 220px;
+    background: #1B2631;
+    font-family: 'JetBrains Mono', monospace;
+    color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Grid background */
+  .banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(37, 208, 247, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 208, 247, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+  }
+
+  /* Glow */
+  .glow {
+    position: absolute;
+    right: 200px;
+    width: 500px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(37, 208, 247, 0.07) 0%, transparent 65%);
+    z-index: 0;
+  }
+
+  /* Watermark */
+  .watermark {
+    position: absolute;
+    left: -30px;
+    top: -20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 200px;
+    font-weight: 800;
+    color: rgba(37, 208, 247, 0.04);
+    z-index: 0;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* Terminal - compact horizontal layout */
+  .terminal-wrapper {
+    z-index: 1;
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+    transform: perspective(1200px) rotateX(1deg);
+  }
+
+  .terminal {
+    background: #0a0e14;
+    border: 1px solid #25D0F730;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow:
+      0 0 40px rgba(37, 208, 247, 0.06),
+      0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .terminal-titlebar {
+    background: #141c26;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #25D0F715;
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 6px;
+    margin-right: 10px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .dot.red { background: #FC3634; }
+  .dot.yellow { background: #FFD700; }
+  .dot.green { background: #18BC9C; }
+
+  .terminal-tabs {
+    display: flex;
+    gap: 4px;
+  }
+
+  .ttab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 3px 12px;
+    border-radius: 4px;
+    color: #506070;
+    font-weight: 500;
+  }
+
+  .ttab.active {
+    background: #25D0F718;
+    color: #25D0F7;
+  }
+
+  .ttab.purple {
+    background: #A991D415;
+    color: #A991D4;
+  }
+
+  .terminal-content {
+    padding: 14px 20px 16px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .line {
+    white-space: nowrap;
+  }
+
+  .prompt { color: #25D0F7; font-weight: 600; }
+  .cmd { color: #e0e0e0; }
+  .out { color: #18BC9C; }
+  .flag { color: #FFD700; }
+  .str { color: #A991D4; }
+  .dim { color: #405060; }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: #25D0F7;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+
+  <div class="glow"></div>
+  <div class="watermark">&gt;_</div>
+
+  <div class="terminal-wrapper">
+    <div class="terminal">
+      <div class="terminal-titlebar">
+        <div class="terminal-dots">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <div class="terminal-tabs">
+          <div class="ttab active">CLI</div>
+          <div class="ttab purple">Claude</div>
+          <div class="ttab">Logs</div>
+        </div>
+      </div>
+      <div class="terminal-content">
+        <div class="line"><span class="prompt">~\vault&gt;</span> <span class="cmd">git commit</span> <span class="flag">-m</span> <span class="str">"update notes"</span> &nbsp;&nbsp; <span class="out">[main a3f7c2d] update notes</span> <span class="dim">| 4 files changed, 87 insertions(+)</span></div>
+        <div class="line"><span class="prompt">~\vault&gt;</span> <span class="cmd">python</span> <span class="str">metadata_adder.py</span> &nbsp;&nbsp; <span class="out">Processed 1,247 notes</span> <span class="dim">| 0 errors</span></div>
+        <div class="line"><span class="prompt">~\vault&gt;</span> <span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

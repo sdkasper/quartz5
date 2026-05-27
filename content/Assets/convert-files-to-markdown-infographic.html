@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert Private Files to Markdown - LeanProductivity Infographic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --sky-blue: #25D0F7;
+      --vermilion: #FC3634;
+      --gunmetal: #1B2631;
+      --mint: #18BC9C;
+      --azure: #007BFF;
+      --gold: #FFD700;
+      --maize: #FFED68;
+      --eerie-black: #1C1C1C;
+      --platinum: #DBDBDB;
+      --silver: #BFC6C7;
+      --celestial-blue: #3498DB;
+      --steel-blue: #4C7AAC;
+      --lavender: #A991D4;
+    }
+
+    body {
+      background: var(--eerie-black);
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--platinum);
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .infographic {
+      width: 1200px;
+      min-height: 100vh;
+      background: var(--gunmetal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dot grid background */
+    .infographic::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle, rgba(37, 208, 247, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .infographic > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ============ SECTION 1: HEADER ============ */
+    .header {
+      padding: 60px 80px 50px;
+      text-align: center;
+      border-bottom: 1px solid rgba(37, 208, 247, 0.1);
+    }
+
+    .brand-label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--sky-blue);
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--sky-blue);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .header .subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--silver);
+      letter-spacing: 0.05em;
+    }
+
+    .subtitle span {
+      color: var(--mint);
+      font-weight: 600;
+    }
+
+    /* ============ SECTION 2: PRIVACY PROBLEM ============ */
+    .privacy-section {
+      padding: 50px 80px;
+      border-bottom: 1px solid rgba(37, 208, 247, 0.1);
+    }
+
+    .section-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--vermilion);
+      text-align: center;
+      margin-bottom: 40px;
+      letter-spacing: -0.01em;
+    }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .privacy-card {
+      border-radius: 8px;
+      padding: 32px;
+      border: 1px solid;
+    }
+
+    .privacy-card.danger {
+      background: rgba(252, 54, 52, 0.06);
+      border-color: rgba(252, 54, 52, 0.25);
+    }
+
+    .privacy-card.safe {
+      background: rgba(24, 188, 156, 0.06);
+      border-color: rgba(24, 188, 156, 0.25);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .danger .card-icon {
+      background: rgba(252, 54, 52, 0.15);
+      color: var(--vermilion);
+    }
+
+    .safe .card-icon {
+      background: rgba(24, 188, 156, 0.15);
+      color: var(--mint);
+    }
+
+    .card-header h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .danger .card-header h3 {
+      color: var(--vermilion);
+    }
+
+    .safe .card-header h3 {
+      color: var(--mint);
+    }
+
+    .privacy-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .privacy-card li {
+      font-size: 14px;
+      color: var(--platinum);
+      padding-left: 28px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .privacy-card li::before {
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .danger li::before {
+      content: '\2717';
+      color: var(--vermilion);
+    }
+
+    .safe li::before {
+      content: '\2713';
+      color: var(--mint);
+    }
+
+    /* ============ SECTION 3: SUPPORTED FORMATS ============ */
+    .formats-section {
+      padding: 50px 80px;
+      border-bottom: 1px solid rgba(37, 208, 247, 0.1);
+    }
+
+    .formats-section .section-title {
+      color: var(--gold);
+    }
+
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+
+    .format-card {
+      border-radius: 8px;
+      padding: 24px 16px;
+      text-align: center;
+      border: 1px solid;
+      transition: none;
+    }
+
+    .format-card.doc {
+      background: rgba(37, 208, 247, 0.05);
+      border-color: rgba(37, 208, 247, 0.2);
+    }
+
+    .format-card.media {
+      background: rgba(255, 215, 0, 0.05);
+      border-color: rgba(255, 215, 0, 0.2);
+    }
+
+    .format-card.data {
+      background: rgba(24, 188, 156, 0.05);
+      border-color: rgba(24, 188, 156, 0.2);
+    }
+
+    .format-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .doc .format-icon {
+      background: rgba(37, 208, 247, 0.12);
+      color: var(--sky-blue);
+    }
+
+    .media .format-icon {
+      background: rgba(255, 215, 0, 0.12);
+      color: var(--gold);
+    }
+
+    .data .format-icon {
+      background: rgba(24, 188, 156, 0.12);
+      color: var(--mint);
+    }
+
+    .format-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--platinum);
+      margin-bottom: 4px;
+    }
+
+    .format-ext {
+      font-size: 11px;
+      color: var(--silver);
+    }
+
+    /* ============ SECTION 4: THREE METHODS ============ */
+    .methods-section {
+      padding: 50px 80px;
+      border-bottom: 1px solid rgba(37, 208, 247, 0.1);
+    }
+
+    .methods-section .section-title {
+      color: var(--vermilion);
+    }
+
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .method-card {
+      border-radius: 8px;
+      padding: 32px 28px;
+      border: 1px solid rgba(191, 198, 199, 0.15);
+      background: rgba(27, 38, 49, 0.6);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .method-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      align-self: flex-start;
+    }
+
+    .method-badge.beginner {
+      background: rgba(24, 188, 156, 0.15);
+      color: var(--mint);
+      border: 1px solid rgba(24, 188, 156, 0.3);
+    }
+
+    .method-badge.intermediate {
+      background: rgba(255, 215, 0, 0.15);
+      color: var(--gold);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .method-badge.advanced {
+      background: rgba(37, 208, 247, 0.15);
+      color: var(--sky-blue);
+      border: 1px solid rgba(37, 208, 247, 0.3);
+    }
+
+    .method-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .method-card .method-desc {
+      font-size: 13px;
+      color: var(--silver);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .method-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex-grow: 1;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(191, 198, 199, 0.08);
+    }
+
+    .spec-row:last-child {
+      border-bottom: none;
+    }
+
+    .spec-label {
+      color: var(--silver);
+      font-weight: 400;
+    }
+
+    .spec-value {
+      font-weight: 600;
+    }
+
+    .spec-value.yes {
+      color: var(--mint);
+    }
+
+    .spec-value.no {
+      color: var(--vermilion);
+    }
+
+    .spec-value.neutral {
+      color: var(--platinum);
+    }
+
+    /* ============ SECTION 5: KEY FEATURES ============ */
+    .features-section {
+      padding: 50px 80px;
+      border-bottom: 1px solid rgba(37, 208, 247, 0.1);
+    }
+
+    .features-section .section-title {
+      color: var(--gold);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-item {
+      border-radius: 8px;
+      padding: 28px 24px;
+      background: rgba(27, 38, 49, 0.6);
+      border: 1px solid rgba(191, 198, 199, 0.1);
+    }
+
+    .feature-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .feature-item:nth-child(1) .feature-icon-wrap {
+      background: rgba(37, 208, 247, 0.12);
+      color: var(--sky-blue);
+    }
+    .feature-item:nth-child(2) .feature-icon-wrap {
+      background: rgba(24, 188, 156, 0.12);
+      color: var(--mint);
+    }
+    .feature-item:nth-child(3) .feature-icon-wrap {
+      background: rgba(255, 215, 0, 0.12);
+      color: var(--gold);
+    }
+    .feature-item:nth-child(4) .feature-icon-wrap {
+      background: rgba(169, 145, 212, 0.12);
+      color: var(--lavender);
+    }
+    .feature-item:nth-child(5) .feature-icon-wrap {
+      background: rgba(37, 208, 247, 0.12);
+      color: var(--sky-blue);
+    }
+    .feature-item:nth-child(6) .feature-icon-wrap {
+      background: rgba(24, 188, 156, 0.12);
+      color: var(--mint);
+    }
+
+    .feature-item h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--platinum);
+      margin-bottom: 8px;
+    }
+
+    .feature-item p {
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.6;
+    }
+
+    /* ============ SECTION 6: CTA ============ */
+    .cta-section {
+      padding: 50px 80px 60px;
+      text-align: center;
+    }
+
+    .cta-headline {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--platinum);
+      margin-bottom: 8px;
+    }
+
+    .cta-headline em {
+      font-style: normal;
+      color: var(--sky-blue);
+    }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 36px;
+      background: var(--azure);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .cta-url {
+      display: block;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--silver);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .footer {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(37, 208, 247, 0.1);
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--sky-blue);
+      margin-bottom: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--silver);
+      font-style: italic;
+    }
+
+    /* ============ VISUAL SEPARATOR ============ */
+    .divider-line {
+      width: 60px;
+      height: 3px;
+      background: var(--sky-blue);
+      margin: 0 auto 32px;
+      border-radius: 2px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="infographic">
+
+    <!-- SECTION 1: HEADER -->
+    <header class="header">
+      <div class="brand-label">LeanProductivity</div>
+      <h1>Convert Private Files<br>to Markdown</h1>
+      <p class="subtitle"><span>Locally.</span> <span>Safely.</span> Without Uploading Online.</p>
+    </header>
+
+    <!-- SECTION 2: THE PRIVACY PROBLEM -->
+    <section class="privacy-section">
+      <h2 class="section-title">The Privacy Problem</h2>
+      <div class="privacy-grid">
+        <div class="privacy-card danger">
+          <div class="card-header">
+            <div class="card-icon">&times;</div>
+            <h3>Online Converters</h3>
+          </div>
+          <ul>
+            <li>Your files leave your machine</li>
+            <li>Third-party servers see your content</li>
+            <li>No control over data retention</li>
+          </ul>
+        </div>
+        <div class="privacy-card safe">
+          <div class="card-header">
+            <div class="card-icon">&#10003;</div>
+            <h3>Local Conversion</h3>
+          </div>
+          <ul>
+            <li>Files never leave your device</li>
+            <li>No cloud uploads</li>
+            <li>Full control over your data</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SUPPORTED FORMATS -->
+    <section class="formats-section">
+      <h2 class="section-title">Supported Formats</h2>
+      <div class="formats-grid">
+        <div class="format-card doc">
+          <div class="format-icon">PDF</div>
+          <div class="format-label">PDF</div>
+          <div class="format-ext">.pdf</div>
+        </div>
+        <div class="format-card doc">
+          <div class="format-icon">DOC</div>
+          <div class="format-label">Word</div>
+          <div class="format-ext">.docx</div>
+        </div>
+        <div class="format-card doc">
+          <div class="format-icon">XLS</div>
+          <div class="format-label">Excel</div>
+          <div class="format-ext">.xlsx</div>
+        </div>
+        <div class="format-card doc">
+          <div class="format-icon">PPT</div>
+          <div class="format-label">PowerPoint</div>
+          <div class="format-ext">.pptx</div>
+        </div>
+        <div class="format-card doc">
+          <div class="format-icon">&lt;/&gt;</div>
+          <div class="format-label">HTML</div>
+          <div class="format-ext">.html</div>
+        </div>
+        <div class="format-card doc">
+          <div class="format-icon">EPB</div>
+          <div class="format-label">EPUB</div>
+          <div class="format-ext">.epub</div>
+        </div>
+        <div class="format-card media">
+          <div class="format-icon">IMG</div>
+          <div class="format-label">Images</div>
+          <div class="format-ext">.jpg .png</div>
+        </div>
+        <div class="format-card media">
+          <div class="format-icon">AUD</div>
+          <div class="format-label">Audio</div>
+          <div class="format-ext">.mp3 .wav</div>
+        </div>
+        <div class="format-card media">
+          <div class="format-icon">VID</div>
+          <div class="format-label">Video</div>
+          <div class="format-ext">.mp4 .mov</div>
+        </div>
+        <div class="format-card data">
+          <div class="format-icon">{ }</div>
+          <div class="format-label">JSON</div>
+          <div class="format-ext">.json</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: THREE METHODS COMPARED -->
+    <section class="methods-section">
+      <h2 class="section-title">Three Methods Compared</h2>
+      <div class="methods-grid">
+
+        <div class="method-card">
+          <span class="method-badge beginner">Beginner</span>
+          <h3>Desktop App</h3>
+          <p class="method-desc">Point-and-click GUI with full features</p>
+          <div class="method-specs">
+            <div class="spec-row">
+              <span class="spec-label">Skill level</span>
+              <span class="spec-value neutral">None</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Batch</span>
+              <span class="spec-value yes">Yes (parallel)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Dry run</span>
+              <span class="spec-value yes">Yes</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Logging</span>
+              <span class="spec-value yes">Yes</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="method-card">
+          <span class="method-badge intermediate">Intermediate</span>
+          <h3>Python Script</h3>
+          <p class="method-desc">Script-based conversion in terminal</p>
+          <div class="method-specs">
+            <div class="spec-row">
+              <span class="spec-label">Skill level</span>
+              <span class="spec-value neutral">Basic terminal</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Batch</span>
+              <span class="spec-value yes">Yes (sequential)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Dry run</span>
+              <span class="spec-value no">No</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Logging</span>
+              <span class="spec-value neutral">Terminal only</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="method-card">
+          <span class="method-badge advanced">Advanced</span>
+          <h3>MarkItDown CLI</h3>
+          <p class="method-desc">Direct CLI for power users</p>
+          <div class="method-specs">
+            <div class="spec-row">
+              <span class="spec-label">Skill level</span>
+              <span class="spec-value neutral">Intermediate</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Batch</span>
+              <span class="spec-value neutral">One at a time</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Dry run</span>
+              <span class="spec-value no">No</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Logging</span>
+              <span class="spec-value no">None</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: KEY FEATURES -->
+    <section class="features-section">
+      <h2 class="section-title">Key Features of the Desktop App</h2>
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon-wrap">?!</div>
+          <h4>Dry Run Mode</h4>
+          <p>Preview what will be converted before committing to the operation.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">&gt;&gt;</div>
+          <h4>Smart Skip</h4>
+          <p>Only processes changed or new files, skipping already converted ones.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">!!</div>
+          <h4>Force Convert</h4>
+          <p>Override skip logic to reconvert all files when needed.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">/\</div>
+          <h4>Folder Structure</h4>
+          <p>Mirrors your input folder hierarchy in the output directory.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">||</div>
+          <h4>Parallel Processing</h4>
+          <p>Handles large batches efficiently with concurrent file conversion.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon-wrap">[]</div>
+          <h4>Detailed Logging</h4>
+          <p>Status report per file - see what succeeded, failed, or was skipped.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CTA -->
+    <section class="cta-section">
+      <p class="cta-headline">Your data stays on <em>YOUR</em> machine.</p>
+      <span class="cta-url">youtu.be/vvZ11rPff14</span>
+      <div class="footer">
+        <p class="footer-brand">LeanProductivity</p>
+        <p class="footer-tagline">As much as necessary, as little as possible.</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <meta name="author" content="LeanProductivity - Sascha D. Kasper">
+    <meta name="description" content="Bulletproof Your Notes: The Complete Obsidian Sync and Backup System - Infographic by LeanProductivity">
+    <title>Bulletproof Your Notes - Obsidian Sync &amp; Backup | LeanProductivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue: #25D0F7;
+            --vermilion: #FC3634;
+            --gunmetal: #1B2631;
+            --azure: #007BFF;
+            --mint: #18BC9C;
+            --gold: #FFD700;
+            --gunmetal-light: #243342;
+            --gunmetal-lighter: #2C3E50;
+            --text-primary: #E8ECF0;
+            --text-secondary: #8A9BAE;
+            --text-muted: #5D6D7E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--gunmetal);
+            color: var(--text-primary);
+            font-family: 'Source Sans 3', sans-serif;
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, var(--text-muted) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 48px 60px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            text-align: center;
+            padding: 56px 0 48px;
+            border-bottom: 2px solid var(--gunmetal-lighter);
+            margin-bottom: 48px;
+        }
+
+        .header-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .header h1 span {
+            color: var(--sky-blue);
+        }
+
+        .header-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--vermilion);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--vermilion);
+            margin-bottom: 28px;
+        }
+
+        /* ========== GOLDEN RULE ========== */
+        .golden-rule {
+            background: linear-gradient(135deg, var(--gunmetal-light), var(--gunmetal-lighter));
+            border: 1px solid var(--gunmetal-lighter);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .golden-rule::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vermilion), var(--gold), var(--vermilion));
+        }
+
+        .golden-rule-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .golden-rule-header h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .golden-rule-header h2 .neq {
+            color: var(--vermilion);
+            font-size: 36px;
+            margin: 0 8px;
+        }
+
+        .golden-rule-grid {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            align-items: center;
+        }
+
+        .rule-card {
+            padding: 28px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .rule-card.sync {
+            background: rgba(37, 208, 247, 0.08);
+            border: 1px solid rgba(37, 208, 247, 0.2);
+        }
+
+        .rule-card.backup {
+            background: rgba(24, 188, 156, 0.08);
+            border: 1px solid rgba(24, 188, 156, 0.2);
+        }
+
+        .rule-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .rule-card.sync .rule-icon {
+            background: rgba(37, 208, 247, 0.15);
+            border: 2px solid var(--sky-blue);
+            color: var(--sky-blue);
+        }
+
+        .rule-card.backup .rule-icon {
+            background: rgba(24, 188, 156, 0.15);
+            border: 2px solid var(--mint);
+            color: var(--mint);
+        }
+
+        .rule-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .rule-card.sync h3 { color: var(--sky-blue); }
+        .rule-card.backup h3 { color: var(--mint); }
+
+        .rule-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .rule-vs {
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+        }
+
+        /* ========== 3-2-1 STRATEGY ========== */
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+
+        .strategy-card {
+            text-align: center;
+            padding: 36px 24px;
+            border-radius: 12px;
+            background: var(--gunmetal-light);
+            border: 1px solid var(--gunmetal-lighter);
+        }
+
+        .strategy-number {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .strategy-card:nth-child(1) .strategy-number { color: var(--sky-blue); }
+        .strategy-card:nth-child(2) .strategy-number { color: var(--vermilion); }
+        .strategy-card:nth-child(3) .strategy-number { color: var(--gold); }
+
+        .strategy-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .strategy-card p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .strategy-connector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 8px;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 3px;
+        }
+
+        .strategy-connector .line {
+            width: 80px;
+            height: 1px;
+            background: var(--text-muted);
+        }
+
+        /* ========== 4-3-1 FLOW ========== */
+        .flow-container {
+            background: var(--gunmetal-light);
+            border: 1px solid var(--gunmetal-lighter);
+            border-radius: 12px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--mint), var(--azure), var(--gold));
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 8px;
+        }
+
+        .flow-step:nth-child(1) {
+            background: rgba(37, 208, 247, 0.08);
+            border: 1px solid rgba(37, 208, 247, 0.25);
+        }
+        .flow-step:nth-child(2) {
+            background: rgba(24, 188, 156, 0.08);
+            border: 1px solid rgba(24, 188, 156, 0.25);
+        }
+        .flow-step:nth-child(3) {
+            background: rgba(0, 123, 255, 0.08);
+            border: 1px solid rgba(0, 123, 255, 0.25);
+        }
+        .flow-step:nth-child(4) {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+        }
+
+        .flow-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .flow-step:nth-child(1) .flow-badge { background: rgba(37, 208, 247, 0.2); color: var(--sky-blue); }
+        .flow-step:nth-child(2) .flow-badge { background: rgba(24, 188, 156, 0.2); color: var(--mint); }
+        .flow-step:nth-child(3) .flow-badge { background: rgba(0, 123, 255, 0.2); color: var(--azure); }
+        .flow-step:nth-child(4) .flow-badge { background: rgba(255, 215, 0, 0.2); color: var(--gold); }
+
+        .flow-step h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .flow-step .flow-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .flow-step .flow-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .flow-arrows {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-muted);
+        }
+
+        .flow-arrow:last-child {
+            visibility: hidden;
+        }
+
+        /* ========== TOOLS ROW ========== */
+        .tools-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tool-card {
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(37, 208, 247, 0.04);
+            border: 1px solid var(--gunmetal-lighter);
+        }
+
+        .tool-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--sky-blue);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .tool-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ========== COMPARISON TABLE ========== */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--gunmetal-light);
+            border: 1px solid var(--gunmetal-lighter);
+        }
+
+        .comparison-table thead {
+            background: var(--gunmetal-lighter);
+        }
+
+        .comparison-table th {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            padding: 16px 14px;
+            text-align: center;
+            border-bottom: 2px solid var(--gunmetal);
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+            padding-left: 24px;
+        }
+
+        .comparison-table td {
+            padding: 14px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(44, 62, 80, 0.5);
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            padding-left: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 15px;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr.highlight-row {
+            background: rgba(37, 208, 247, 0.04);
+        }
+
+        .comparison-table tr.highlight-row td:first-child {
+            color: var(--sky-blue);
+        }
+
+        .badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-green {
+            background: rgba(24, 188, 156, 0.15);
+            color: var(--mint);
+            border: 1px solid rgba(24, 188, 156, 0.3);
+        }
+
+        .badge-amber {
+            background: rgba(255, 215, 0, 0.12);
+            color: var(--gold);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+        }
+
+        .badge-red {
+            background: rgba(252, 54, 52, 0.12);
+            color: var(--vermilion);
+            border: 1px solid rgba(252, 54, 52, 0.25);
+        }
+
+        .badge-blue {
+            background: rgba(0, 123, 255, 0.12);
+            color: var(--azure);
+            border: 1px solid rgba(0, 123, 255, 0.25);
+        }
+
+        .badge-cyan {
+            background: rgba(37, 208, 247, 0.12);
+            color: var(--sky-blue);
+            border: 1px solid rgba(37, 208, 247, 0.25);
+        }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            text-align: center;
+            padding: 48px 40px;
+            background: linear-gradient(135deg, var(--gunmetal-light), var(--gunmetal-lighter));
+            border-radius: 12px;
+            border: 1px solid var(--gunmetal-lighter);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--vermilion));
+        }
+
+        .cta-section h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .cta-section h2 span {
+            color: var(--sky-blue);
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .cta-emphasis {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid var(--gunmetal-lighter);
+            margin-top: 48px;
+        }
+
+        .footer-links {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--sky-blue);
+            text-decoration: none;
+        }
+
+        .footer-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        @media print {
+            body { width: 1200px; }
+            body::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-brand">LeanProductivity</div>
+            <h1>Bulletproof <span>Your Notes</span></h1>
+            <p class="header-subtitle">The Complete Obsidian Sync &amp; Backup System</p>
+        </header>
+
+        <!-- GOLDEN RULE: SYNC != BACKUP -->
+        <section class="golden-rule">
+            <div class="golden-rule-header">
+                <h2>SYNC <span class="neq">&ne;</span> BACKUP</h2>
+            </div>
+            <div class="golden-rule-grid">
+                <div class="rule-card sync">
+                    <div class="rule-icon">&#8644;</div>
+                    <h3>Sync</h3>
+                    <p>Keeps your devices consistent. Edits appear everywhere - including mistakes.</p>
+                </div>
+                <div class="rule-vs">VS</div>
+                <div class="rule-card backup">
+                    <div class="rule-icon">&#9737;</div>
+                    <h3>Backup</h3>
+                    <p>Keeps your notes safe. Independent copies you can always fall back to.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-2-1 STRATEGY -->
+        <section class="section">
+            <div class="section-label">The Gold Standard</div>
+            <h2 class="section-title">The 3-2-1 Backup Strategy</h2>
+            <div class="section-divider"></div>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-number">3</div>
+                    <h3>Copies</h3>
+                    <p>Your live vault plus two independent backups</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-number">2</div>
+                    <h3>Storage Types</h3>
+                    <p>Different media - like an external drive and cloud storage</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-number">1</div>
+                    <h3>Off-Site</h3>
+                    <p>At least one copy stored at another location or in the cloud</p>
+                </div>
+            </div>
+            <div class="strategy-connector">
+                <span class="line"></span>
+                Protects against hardware failure, sync glitches, accidental deletion
+                <span class="line"></span>
+            </div>
+        </section>
+
+        <!-- 4-3-1 SETUP -->
+        <section class="section">
+            <div class="section-label">Real-World Example</div>
+            <h2 class="section-title">The 4-3-1 Setup</h2>
+            <div class="section-divider"></div>
+            <div class="flow-container">
+                <div class="flow-grid">
+                    <div class="flow-step">
+                        <div class="flow-badge">VERSION 1</div>
+                        <h4>Live Notes</h4>
+                        <p class="flow-desc">Main device - your working vault</p>
+                        <p class="flow-meta">Primary device</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-badge">VERSION 2</div>
+                        <h4>Zip Archives</h4>
+                        <p class="flow-desc">Hourly snapshots via Local Backup plugin</p>
+                        <p class="flow-meta">Storage 1: External SSD</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-badge">VERSION 3</div>
+                        <h4>Daily Mirror</h4>
+                        <p class="flow-desc">Exact replica via FreeFileSync</p>
+                        <p class="flow-meta">Storage 2: NAS</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-badge">VERSION 4</div>
+                        <h4>Weekly Cloud</h4>
+                        <p class="flow-desc">Off-site copy via FreeFileSync batch</p>
+                        <p class="flow-meta">Storage 3: Cloud (off-site)</p>
+                    </div>
+                </div>
+                <div class="flow-arrows">
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-arrow"></div>
+                </div>
+            </div>
+            <div class="tools-row">
+                <div class="tool-card">
+                    <h4>Local Backup Plugin</h4>
+                    <p>Obsidian community plugin. Creates zip archives on start, close, and hourly intervals. Limit retention to 5 days.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>FreeFileSync</h4>
+                    <p>Free, open source. Differential backup (changes only) or mirror (exact replica including deletions). Windows, Mac, Linux.</p>
+                </div>
+                <div class="tool-card">
+                    <h4>Task Scheduler</h4>
+                    <p>Built-in on Windows. Schedule FreeFileSync batch jobs daily or weekly. Mac alternative: Launchd or Task Till Dawn.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARISON TABLE -->
+        <section class="section">
+            <div class="section-label">Choose Your Method</div>
+            <h2 class="section-title">Sync Options Compared</h2>
+            <div class="section-divider"></div>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Cost</th>
+                        <th>Complexity</th>
+                        <th>Sync Speed</th>
+                        <th>Versioning</th>
+                        <th>Mobile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight-row">
+                        <td>Obsidian Sync</td>
+                        <td><span class="badge badge-amber">$4-8/mo</span></td>
+                        <td><span class="badge badge-green">LOW</span></td>
+                        <td><span class="badge badge-green">REAL-TIME</span></td>
+                        <td><span class="badge badge-amber">RESTORE</span></td>
+                        <td><span class="badge badge-green">BUILT-IN</span></td>
+                    </tr>
+                    <tr>
+                        <td>OneDrive + OneSync</td>
+                        <td><span class="badge badge-green">FREE</span></td>
+                        <td><span class="badge badge-green">LOW</span></td>
+                        <td><span class="badge badge-red">1HR</span></td>
+                        <td><span class="badge badge-red">NONE</span></td>
+                        <td><span class="badge badge-amber">ONESYNC</span></td>
+                    </tr>
+                    <tr>
+                        <td>Syncthing</td>
+                        <td><span class="badge badge-green">FREE</span></td>
+                        <td><span class="badge badge-amber">MEDIUM</span></td>
+                        <td><span class="badge badge-green">NEAR RT</span></td>
+                        <td><span class="badge badge-red">NONE</span></td>
+                        <td><span class="badge badge-amber">FORK APP</span></td>
+                    </tr>
+                    <tr>
+                        <td>Git Plugin</td>
+                        <td><span class="badge badge-green">FREE</span></td>
+                        <td><span class="badge badge-red">HIGH</span></td>
+                        <td><span class="badge badge-amber">CONFIG</span></td>
+                        <td><span class="badge badge-green">FULL GIT</span></td>
+                        <td><span class="badge badge-amber">GITSYNC</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fit Plugin</td>
+                        <td><span class="badge badge-green">FREE</span></td>
+                        <td><span class="badge badge-amber">MEDIUM</span></td>
+                        <td><span class="badge badge-amber">CONFIG</span></td>
+                        <td><span class="badge badge-blue">COMMITS</span></td>
+                        <td><span class="badge badge-green">BUILT-IN</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Pick <span>One</span> Today</h2>
+            <p>One sync method + at least one backup method.</p>
+            <div class="cta-emphasis">Set them up today - not after something breaks.</div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-links">
+                Full tutorial: youtu.be/jQRcYIZbYg8
+                &nbsp;&middot;&nbsp;
+                YouTube: @LeanProductivity
+            </div>
+            <div class="footer-brand">LeanProductivity &middot; As much as necessary, as little as possible.</div>
+        </footer>
+
+    </div>
+</body>
+</html>

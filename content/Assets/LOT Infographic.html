@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lean Obsidian Terminal - Infographic</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0e1117;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .infographic {
+    width: 800px;
+    background: #1B2631;
+    font-family: 'JetBrains Mono', monospace;
+    color: #e0e0e0;
+    overflow: hidden;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1B2631 0%, #0f1a24 100%);
+    padding: 48px 48px 40px;
+    border-bottom: 3px solid #25D0F7;
+    text-align: center;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #25D0F7;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #FC3634;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* Section base */
+  .section {
+    padding: 40px 48px;
+  }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #FC3634;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #FC363440;
+  }
+  .section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #25D0F7;
+    margin-bottom: 12px;
+  }
+  .section p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #b0b8c0;
+  }
+
+  /* Problem section */
+  .problem {
+    background: #1B2631;
+    border-bottom: 1px solid #ffffff10;
+  }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .problem-card {
+    background: #0f1a24;
+    border: 1px solid #FC363430;
+    border-radius: 6px;
+    padding: 20px;
+  }
+  .problem-card .icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .problem-card h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #FC3634;
+    margin-bottom: 6px;
+  }
+  .problem-card p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #8090a0;
+  }
+
+  /* Solution section */
+  .solution {
+    background: linear-gradient(180deg, #0f1a24 0%, #1B2631 100%);
+    border-bottom: 1px solid #ffffff10;
+  }
+  .terminal-mockup {
+    background: #0a0e14;
+    border: 1px solid #25D0F740;
+    border-radius: 8px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .terminal-bar {
+    background: #141c26;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #25D0F720;
+  }
+  .terminal-tab {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: #8090a0;
+  }
+  .terminal-tab.active {
+    background: #25D0F720;
+    color: #25D0F7;
+  }
+  .terminal-tab.purple {
+    background: #A991D420;
+    color: #A991D4;
+  }
+  .terminal-body {
+    padding: 16px 18px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .terminal-body .prompt {
+    color: #25D0F7;
+  }
+  .terminal-body .command {
+    color: #e0e0e0;
+  }
+  .terminal-body .output {
+    color: #18BC9C;
+  }
+  .terminal-body .dim {
+    color: #506070;
+  }
+
+  /* Features section */
+  .features {
+    background: #1B2631;
+    border-bottom: 1px solid #ffffff10;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .feature-card {
+    background: #0f1a24;
+    border: 1px solid #25D0F715;
+    border-radius: 6px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .feature-card:hover {
+    border-color: #25D0F740;
+  }
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 12px;
+    background: #25D0F710;
+    border: 1px solid #25D0F730;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #25D0F7;
+  }
+  .feature-card h3 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 6px;
+  }
+  .feature-card p {
+    font-size: 11px;
+    line-height: 1.5;
+    color: #708090;
+  }
+
+  /* Install section */
+  .install {
+    background: linear-gradient(180deg, #1B2631 0%, #0f1a24 100%);
+    border-bottom: 1px solid #ffffff10;
+  }
+  .steps {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+  }
+  .step {
+    flex: 1;
+    background: #0f1a24;
+    border: 1px solid #25D0F715;
+    border-radius: 6px;
+    padding: 20px;
+    position: relative;
+  }
+  .step-number {
+    width: 28px;
+    height: 28px;
+    background: #25D0F7;
+    color: #1B2631;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .step h3 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 6px;
+  }
+  .step p {
+    font-size: 11px;
+    line-height: 1.6;
+    color: #708090;
+  }
+  .step code {
+    display: inline-block;
+    background: #1B2631;
+    color: #25D0F7;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    margin-top: 6px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 28px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0f1a24;
+    border-top: 2px solid #25D0F7;
+  }
+  .footer-brand {
+    font-size: 14px;
+    font-weight: 700;
+    color: #25D0F7;
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-link {
+    font-size: 11px;
+    color: #708090;
+    text-decoration: none;
+  }
+  .footer-link span {
+    color: #25D0F7;
+  }
+  .footer-cta {
+    background: #FC3634;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="infographic">
+
+  <div class="header">
+    <h1>Lean Obsidian Terminal</h1>
+    <div class="subtitle">Eliminating Context Friction</div>
+  </div>
+
+  <div class="section problem">
+    <div class="section-label">The Problem</div>
+    <h2>Window Switching Kills Focus</h2>
+    <p>Every alt-tab between Obsidian and a terminal breaks your flow. Multiply that by dozens of times a day and the friction adds up fast.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="icon">&#x2717;</div>
+        <h3>Open in Terminal</h3>
+        <p>Opens an external CMD window. Not inside Obsidian. Defeats the purpose.</p>
+      </div>
+      <div class="problem-card">
+        <div class="icon">&#x2717;</div>
+        <h3>Terminal Plugin</h3>
+        <p>Embeds a panel but mirrors to an external window. Resizing breaks it. Throws errors.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section solution">
+    <div class="section-label">The Solution</div>
+    <h2>A Real Terminal Inside Your Vault</h2>
+    <p>Lean Terminal runs your actual system shell directly in Obsidian. No external windows. No mirroring. Full interactivity.</p>
+    <div class="terminal-mockup">
+      <div class="terminal-bar">
+        <div class="terminal-tab active">CLI</div>
+        <div class="terminal-tab purple">Claude Code</div>
+        <div class="terminal-tab">Scripts</div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">PS D:\Lean Notes&gt;</span> <span class="command">obsidian-cli list --vault .</span></div>
+        <div><span class="output">Found 1,247 notes in vault</span></div>
+        <div><span class="output">Tags: 89 unique | Links: 3,402 resolved</span></div>
+        <div><span class="dim">---</span></div>
+        <div><span class="prompt">PS D:\Lean Notes&gt;</span> <span class="command">claude "review my daily note"</span></div>
+        <div><span class="output">Reading 2026-03-30.md...</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section features">
+    <div class="section-label">Core Features</div>
+    <h2>What You Get</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&gt;_</div>
+        <h3>Native Shell</h3>
+        <p>PowerShell, Bash, Zsh - your actual shell, not an emulator</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2261;</div>
+        <h3>Multi-Tab</h3>
+        <p>Multiple terminals in tabs with custom colors and names</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x25A8;</div>
+        <h3>Split Panes</h3>
+        <p>Drag terminals into any pane layout side by side</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x266A;</div>
+        <h3>Notifications</h3>
+        <p>Sound alerts when long-running processes finish</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2699;</div>
+        <h3>Customizable</h3>
+        <p>Themes, fonts, cursor, scrollback, default position</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x2764;</div>
+        <h3>Free & Open</h3>
+        <p>Open source on GitHub. Works on Win, Mac, Linux</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section install">
+    <div class="section-label">Get Started</div>
+    <h2>Install in 3 Steps</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Add via BRAT</h3>
+        <p>Install BRAT, then add the plugin repo URL</p>
+        <code>kspr.me/lot</code>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Download Binaries</h3>
+        <p>Open Settings and click Download - auto-detects your OS</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Open Terminal</h3>
+        <p>Command palette or ribbon icon. Your shell is ready.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-brand">LeanProductivity</div>
+    <div class="footer-links">
+      <span class="footer-link"><span>GitHub</span> kspr.me/lot</span>
+      <span class="footer-link"><span>Video</span> kspr.me/lotvid</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

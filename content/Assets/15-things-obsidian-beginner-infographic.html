@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <meta name="author" content="LeanProductivity - Sascha D. Kasper">
+    <meta name="description" content="15 Things Every Obsidian Beginner Should Know - Infographic by LeanProductivity">
+    <title>15 Things Every Obsidian Beginner Should Know | LeanProductivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue: #25D0F7;
+            --vermilion: #FC3634;
+            --gunmetal: #1B2631;
+            --azure: #007BFF;
+            --mint: #18BC9C;
+            --gold: #FFD700;
+            --maize: #FFED68;
+            --eerie-black: #1C1C1C;
+            --platinum: #DBDBDB;
+            --silver: #BFC6C7;
+            --gunmetal-light: #243342;
+            --gunmetal-lighter: #2C3E50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--gunmetal);
+            color: var(--platinum);
+            font-family: 'JetBrains Mono', monospace;
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, var(--silver) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 48px 60px;
+        }
+
+        /* ========== SECTION SHARED ========== */
+        section {
+            margin-bottom: 56px;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--vermilion);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--sky-blue);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--vermilion);
+            margin: 24px 0;
+            border: none;
+        }
+
+        .card {
+            background: var(--gunmetal-light);
+            border-radius: 10px;
+            padding: 24px;
+            border: 1px solid var(--gunmetal-lighter);
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            text-align: center;
+            padding: 56px 0 48px;
+            border-bottom: 2px solid var(--gunmetal-lighter);
+            margin-bottom: 48px;
+        }
+
+        .header-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--sky-blue);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .header-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--silver);
+            letter-spacing: 1px;
+        }
+
+        /* ========== SECTION 2: NO CODING ========== */
+        .banner {
+            background: linear-gradient(135deg, var(--gunmetal-light), var(--gunmetal-lighter));
+            border: 2px solid var(--mint);
+            border-radius: 12px;
+            padding: 32px 40px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .banner-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--mint);
+            margin-bottom: 8px;
+        }
+
+        .banner-sub {
+            font-size: 14px;
+            color: var(--silver);
+        }
+
+        .view-modes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .view-card {
+            border-radius: 10px;
+            padding: 24px 20px;
+            text-align: center;
+            border: 2px solid;
+        }
+
+        .view-card--editing {
+            background: rgba(37, 208, 247, 0.08);
+            border-color: var(--sky-blue);
+        }
+
+        .view-card--reading {
+            background: rgba(24, 188, 156, 0.08);
+            border-color: var(--mint);
+        }
+
+        .view-card--source {
+            background: rgba(255, 215, 0, 0.08);
+            border-color: var(--gold);
+        }
+
+        .view-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .view-card--editing h3 { color: var(--sky-blue); }
+        .view-card--reading h3 { color: var(--mint); }
+        .view-card--source h3 { color: var(--gold); }
+
+        .view-card p {
+            font-size: 13px;
+            color: var(--silver);
+            line-height: 1.5;
+        }
+
+        /* ========== SECTION 3: FOLDER STRUCTURE ========== */
+        .folder-tree {
+            background: var(--eerie-black);
+            border-radius: 10px;
+            padding: 32px 40px;
+            border: 1px solid var(--gunmetal-lighter);
+            font-size: 16px;
+            line-height: 2.2;
+        }
+
+        .folder-tree .root {
+            color: var(--sky-blue);
+            font-weight: 700;
+        }
+
+        .folder-tree .folder {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .folder-tree .desc {
+            color: var(--silver);
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        .folder-indent {
+            padding-left: 32px;
+        }
+
+        .folder-icon {
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            margin-right: 4px;
+        }
+
+        /* ========== SECTION 4: MARKDOWN CHEAT SHEET ========== */
+        .md-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--gunmetal-lighter);
+        }
+
+        .md-grid-header {
+            background: var(--gunmetal-lighter);
+            padding: 14px 24px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--vermilion);
+        }
+
+        .md-row {
+            display: contents;
+        }
+
+        .md-cell {
+            padding: 14px 24px;
+            font-size: 15px;
+            border-bottom: 1px solid var(--gunmetal-lighter);
+            display: flex;
+            align-items: center;
+        }
+
+        .md-cell--syntax {
+            background: var(--eerie-black);
+            color: var(--sky-blue);
+            font-weight: 600;
+        }
+
+        .md-cell--result {
+            background: var(--gunmetal-light);
+            color: var(--platinum);
+        }
+
+        .md-cell--result .rendered-h1 {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .md-cell--result .rendered-h2 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .md-cell--result strong {
+            font-weight: 700;
+        }
+
+        .md-cell--result em {
+            font-style: italic;
+        }
+
+        .md-cell .shortcut {
+            font-size: 11px;
+            color: var(--silver);
+            margin-left: 8px;
+            background: var(--gunmetal-lighter);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .md-cell--result .wikilink {
+            color: var(--sky-blue);
+            text-decoration: underline;
+            text-decoration-style: dotted;
+        }
+
+        /* ========== SECTION 5: PROPERTIES TAGS ALIASES ========== */
+        .triple-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .triple-card {
+            border-radius: 10px;
+            padding: 28px 24px;
+            border: 2px solid;
+        }
+
+        .triple-card--tags {
+            background: rgba(37, 208, 247, 0.06);
+            border-color: var(--sky-blue);
+        }
+
+        .triple-card--props {
+            background: rgba(255, 215, 0, 0.06);
+            border-color: var(--gold);
+        }
+
+        .triple-card--aliases {
+            background: rgba(24, 188, 156, 0.06);
+            border-color: var(--mint);
+        }
+
+        .triple-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .triple-card--tags h3 { color: var(--sky-blue); }
+        .triple-card--props h3 { color: var(--gold); }
+        .triple-card--aliases h3 { color: var(--mint); }
+
+        .triple-card p {
+            font-size: 13px;
+            color: var(--silver);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .triple-card code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            background: var(--eerie-black);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--platinum);
+        }
+
+        /* ========== SECTION 6: USE CASES GRID ========== */
+        .use-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .use-card {
+            background: var(--gunmetal-light);
+            border-radius: 8px;
+            padding: 20px 16px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--platinum);
+            border: 1px solid var(--gunmetal-lighter);
+            transition: none;
+        }
+
+        .use-card:nth-child(4n+1) { border-left: 3px solid var(--sky-blue); }
+        .use-card:nth-child(4n+2) { border-left: 3px solid var(--mint); }
+        .use-card:nth-child(4n+3) { border-left: 3px solid var(--gold); }
+        .use-card:nth-child(4n+4) { border-left: 3px solid var(--vermilion); }
+
+        /* ========== SECTION 7: PLUGIN WISDOM ========== */
+        .plugin-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .plugin-card {
+            border-radius: 10px;
+            padding: 28px 24px;
+            border: 1px solid var(--gunmetal-lighter);
+            background: var(--gunmetal-light);
+        }
+
+        .plugin-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .plugin-badge--core {
+            background: rgba(24, 188, 156, 0.15);
+            color: var(--mint);
+            border: 1px solid var(--mint);
+        }
+
+        .plugin-badge--community {
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .plugin-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--platinum);
+            margin-bottom: 12px;
+        }
+
+        .plugin-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .plugin-card li {
+            font-size: 13px;
+            color: var(--silver);
+            padding: 4px 0;
+            line-height: 1.5;
+        }
+
+        .plugin-card li::before {
+            content: "\25B8";
+            margin-right: 8px;
+            color: var(--silver);
+        }
+
+        .warning-banner {
+            background: rgba(252, 54, 52, 0.08);
+            border: 2px solid var(--vermilion);
+            border-radius: 10px;
+            padding: 20px 28px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--vermilion);
+            line-height: 1.5;
+        }
+
+        /* ========== SECTION 8: LINKING & GRAPH ========== */
+        .link-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .node {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .node--a {
+            background: rgba(37, 208, 247, 0.12);
+            border: 3px solid var(--sky-blue);
+            color: var(--sky-blue);
+        }
+
+        .node--b {
+            background: rgba(24, 188, 156, 0.12);
+            border: 3px solid var(--mint);
+            color: var(--mint);
+        }
+
+        .node--graph {
+            background: rgba(255, 215, 0, 0.10);
+            border: 3px solid var(--gold);
+            color: var(--gold);
+            width: 160px;
+            height: 160px;
+        }
+
+        .link-arrows {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .arrow-line {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin: 6px 0;
+        }
+
+        .arrow-bar {
+            width: 120px;
+            height: 2px;
+            background: var(--sky-blue);
+        }
+
+        .arrow-bar--back {
+            background: var(--mint);
+        }
+
+        .arrow-head {
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+
+        .arrow-head--right {
+            border-left: 10px solid var(--sky-blue);
+        }
+
+        .arrow-head--left {
+            border-right: 10px solid var(--mint);
+        }
+
+        .arrow-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .arrow-label--link { color: var(--sky-blue); }
+        .arrow-label--backlink { color: var(--mint); }
+
+        .graph-connector {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(to right, var(--mint), var(--gold));
+            z-index: 1;
+        }
+
+        .link-description {
+            text-align: center;
+            font-size: 14px;
+            color: var(--silver);
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Mini graph dots inside the graph node */
+        .mini-graph {
+            display: grid;
+            grid-template-columns: repeat(3, 8px);
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .mini-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+
+        .mini-dot:nth-child(2) { opacity: 0.9; }
+        .mini-dot:nth-child(5) { opacity: 1; background: var(--sky-blue); }
+        .mini-dot:nth-child(4) { opacity: 0.5; background: var(--mint); }
+
+        /* ========== SECTION 9: SHORTCUTS BAR ========== */
+        .shortcuts-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .shortcut-item {
+            background: var(--eerie-black);
+            border-radius: 10px;
+            padding: 20px 16px;
+            text-align: center;
+            border: 1px solid var(--gunmetal-lighter);
+        }
+
+        .shortcut-key {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--sky-blue);
+            margin-bottom: 8px;
+        }
+
+        .shortcut-action {
+            font-size: 12px;
+            color: var(--silver);
+            font-weight: 500;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 48px 0 40px;
+            border-top: 2px solid var(--gunmetal-lighter);
+        }
+
+        .footer-url {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--sky-blue);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-tagline {
+            font-size: 13px;
+            color: var(--silver);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .footer-brand {
+            font-weight: 700;
+            color: var(--sky-blue);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="header-brand">LeanProductivity</div>
+        <h1>15 Things Every Obsidian Beginner Should Know</h1>
+        <p class="header-subtitle">From First Vault to Confident Note-Taker</p>
+    </header>
+
+    <!-- ==================== NO CODING REQUIRED ==================== -->
+    <section>
+        <div class="banner">
+            <div class="banner-title">No Coding Required</div>
+            <p class="banner-sub">Obsidian has three view modes. Pick the one that fits your comfort level.</p>
+        </div>
+        <div class="view-modes">
+            <div class="view-card view-card--editing">
+                <h3>Editing View</h3>
+                <p>Live preview with formatted text. Type Markdown, see results instantly. Best for most users.</p>
+            </div>
+            <div class="view-card view-card--reading">
+                <h3>Reading View</h3>
+                <p>Clean, read-only display. No syntax visible. Perfect for reviewing finished notes.</p>
+            </div>
+            <div class="view-card view-card--source">
+                <h3>Source Mode</h3>
+                <p>Raw Markdown with full syntax visible. For those who want complete control.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== FOLDER STRUCTURE ==================== -->
+    <section>
+        <div class="section-label">Starter Setup</div>
+        <div class="section-title">Minimal Folder Structure</div>
+        <div class="folder-tree">
+            <div class="root"><span class="folder-icon">&#128193;</span> My Vault</div>
+            <div class="folder-indent">
+                <span class="folder-icon">&#128193;</span>
+                <span class="folder">00 Inbox</span>
+                <span class="desc"> &mdash; Quick, uncategorized notes. Process later.</span>
+            </div>
+            <div class="folder-indent">
+                <span class="folder-icon">&#128193;</span>
+                <span class="folder">10 Notes</span>
+                <span class="desc"> &mdash; Your actual content. Ideas, projects, references.</span>
+            </div>
+            <div class="folder-indent">
+                <span class="folder-icon">&#128193;</span>
+                <span class="folder">90 Templates</span>
+                <span class="desc"> &mdash; Templates, dashboards, reusable structures.</span>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== MARKDOWN CHEAT SHEET ==================== -->
+    <section>
+        <div class="section-label">Essential Syntax</div>
+        <div class="section-title">Markdown Cheat Sheet</div>
+        <div class="md-grid">
+            <div class="md-grid-header">What You Type</div>
+            <div class="md-grid-header">What You Get</div>
+
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax"># Heading 1</div>
+                <div class="md-cell md-cell--result"><span class="rendered-h1">Heading 1</span></div>
+            </div>
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax">## Heading 2</div>
+                <div class="md-cell md-cell--result"><span class="rendered-h2">Heading 2</span></div>
+            </div>
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax">**bold** <span class="shortcut">CTRL+B</span></div>
+                <div class="md-cell md-cell--result"><strong>bold</strong></div>
+            </div>
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax">*italic* <span class="shortcut">CTRL+I</span></div>
+                <div class="md-cell md-cell--result"><em>italic</em></div>
+            </div>
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax">- bullet list</div>
+                <div class="md-cell md-cell--result">&#8226; bullet list</div>
+            </div>
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax">1. numbered list</div>
+                <div class="md-cell md-cell--result">1. numbered list</div>
+            </div>
+            <div class="md-row">
+                <div class="md-cell md-cell--syntax">[[link to note]]</div>
+                <div class="md-cell md-cell--result"><span class="wikilink">link to note</span></div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== PROPERTIES, TAGS & ALIASES ==================== -->
+    <section>
+        <div class="section-label">Organize Your Notes</div>
+        <div class="section-title">Properties, Tags &amp; Aliases</div>
+        <div class="triple-cards">
+            <div class="triple-card triple-card--tags">
+                <h3>Tags</h3>
+                <p>Categorize notes across folders. Search and filter by topic regardless of where the note lives.</p>
+                <p><code>#tag</code> inline or in frontmatter</p>
+            </div>
+            <div class="triple-card triple-card--props">
+                <h3>Properties</h3>
+                <p>Structured data fields in frontmatter. Track created dates, status, custom fields, and more.</p>
+                <p><code>status: draft</code></p>
+            </div>
+            <div class="triple-card triple-card--aliases">
+                <h3>Aliases</h3>
+                <p>Alternative names for notes. Search and link by alias without renaming the file.</p>
+                <p><code>aliases: [PKM, BASB]</code></p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== USE CASES GRID ==================== -->
+    <section>
+        <div class="section-label">What It's Great For</div>
+        <div class="section-title">Use Cases</div>
+        <div class="use-grid">
+            <div class="use-card">General Notes</div>
+            <div class="use-card">Meeting Notes</div>
+            <div class="use-card">Person Notes</div>
+            <div class="use-card">Task Management</div>
+            <div class="use-card">Book Notes</div>
+            <div class="use-card">Journaling</div>
+            <div class="use-card">Knowledge Wiki</div>
+            <div class="use-card">Travel Planning</div>
+            <div class="use-card">Habit Tracking</div>
+            <div class="use-card">Subscriptions</div>
+            <div class="use-card">CRM</div>
+            <div class="use-card">TTRPGs</div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== PLUGIN WISDOM ==================== -->
+    <section>
+        <div class="section-label">Extend Carefully</div>
+        <div class="section-title">Plugin Wisdom</div>
+        <div class="plugin-cols">
+            <div class="plugin-card">
+                <span class="plugin-badge plugin-badge--core">Core</span>
+                <h3>Core Plugins</h3>
+                <ul>
+                    <li>Built into Obsidian</li>
+                    <li>Maintained by the Obsidian team</li>
+                    <li>Many active by default</li>
+                    <li>Toggle on/off in Settings</li>
+                </ul>
+            </div>
+            <div class="plugin-card">
+                <span class="plugin-badge plugin-badge--community">Community</span>
+                <h3>Community Plugins</h3>
+                <ul>
+                    <li>2,000+ available</li>
+                    <li>Individual maintainers</li>
+                    <li>Install only what you need</li>
+                    <li>Check last-updated date</li>
+                </ul>
+            </div>
+        </div>
+        <div class="warning-banner">
+            Know what you want BEFORE browsing plugins. The rabbit hole is real.
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== LINKING & GRAPH ==================== -->
+    <section>
+        <div class="section-label">Connect Everything</div>
+        <div class="section-title">Linking &amp; Graph</div>
+        <div class="card">
+            <div class="link-diagram">
+                <div class="node node--a">
+                    Note A
+                </div>
+                <div class="link-arrows">
+                    <span class="arrow-label arrow-label--link">LINK</span>
+                    <div class="arrow-line">
+                        <div class="arrow-bar"></div>
+                        <div class="arrow-head arrow-head--right"></div>
+                    </div>
+                    <div class="arrow-line">
+                        <div class="arrow-head arrow-head--left"></div>
+                        <div class="arrow-bar arrow-bar--back"></div>
+                    </div>
+                    <span class="arrow-label arrow-label--backlink">BACKLINK</span>
+                </div>
+                <div class="node node--b">
+                    Note B
+                </div>
+                <div class="graph-connector"></div>
+                <div class="node node--graph">
+                    Graph
+                    <div class="mini-graph">
+                        <div class="mini-dot"></div>
+                        <div class="mini-dot"></div>
+                        <div class="mini-dot"></div>
+                        <div class="mini-dot"></div>
+                        <div class="mini-dot"></div>
+                        <div class="mini-dot"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="link-description">
+                Links connect notes. Backlinks show who links to you. The Graph visualizes everything.
+            </p>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ==================== QUICK REFERENCE BAR ==================== -->
+    <section>
+        <div class="section-label">Keep Handy</div>
+        <div class="section-title">Quick Reference</div>
+        <div class="shortcuts-bar">
+            <div class="shortcut-item">
+                <div class="shortcut-key">CTRL + P</div>
+                <div class="shortcut-action">Command Palette</div>
+            </div>
+            <div class="shortcut-item">
+                <div class="shortcut-key">CTRL + B</div>
+                <div class="shortcut-action">Bold</div>
+            </div>
+            <div class="shortcut-item">
+                <div class="shortcut-key">CTRL + I</div>
+                <div class="shortcut-action">Italic</div>
+            </div>
+            <div class="shortcut-item">
+                <div class="shortcut-key">[&thinsp;[</div>
+                <div class="shortcut-action">Link to Note</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-url">youtu.be/VbJCyuUB0eA</div>
+        <div class="footer-tagline"><span class="footer-brand">LeanProductivity</span> &mdash; As much as necessary, as little as possible.</div>
+    </footer>
+
+</div>
+
+</body>
+</html>

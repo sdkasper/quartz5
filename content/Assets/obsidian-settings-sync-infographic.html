@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <meta name="author" content="LeanProductivity - Sascha D. Kasper">
+    <meta name="description" content="How to Sync Obsidian Settings and Plugins Between Devices - Infographic by LeanProductivity">
+    <title>Sync Obsidian Settings Between Devices | LeanProductivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-blue: #25D0F7;
+            --vermilion: #FC3634;
+            --gunmetal: #1B2631;
+            --azure: #007BFF;
+            --mint: #18BC9C;
+            --gold: #FFD700;
+            --gunmetal-light: #243342;
+            --gunmetal-lighter: #2C3E50;
+            --text-primary: #E8ECF0;
+            --text-secondary: #8A9BAE;
+            --text-muted: #5D6D7E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--gunmetal);
+            color: var(--text-primary);
+            font-family: 'Source Sans 3', sans-serif;
+            width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, var(--text-muted) 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            padding: 0 48px 60px;
+        }
+
+        /* ========== HEADER ========== */
+        .header {
+            text-align: center;
+            padding: 56px 0 48px;
+            border-bottom: 2px solid var(--gunmetal-lighter);
+            margin-bottom: 48px;
+        }
+
+        .header-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sky-blue);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .header h1 span {
+            color: var(--sky-blue);
+        }
+
+        .header-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--vermilion);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--vermilion);
+            margin-bottom: 28px;
+        }
+
+        /* ========== CORE CONCEPT ========== */
+        .concept-box {
+            background: linear-gradient(135deg, var(--gunmetal-light), var(--gunmetal-lighter));
+            border: 1px solid var(--gunmetal-lighter);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--gold), var(--sky-blue));
+        }
+
+        .concept-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .concept-header h2 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            align-items: center;
+        }
+
+        .concept-card {
+            padding: 28px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .concept-card.primary {
+            background: rgba(37, 208, 247, 0.08);
+            border: 1px solid rgba(37, 208, 247, 0.2);
+        }
+
+        .concept-card.secondary {
+            background: rgba(24, 188, 156, 0.08);
+            border: 1px solid rgba(24, 188, 156, 0.2);
+        }
+
+        .concept-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .concept-card.primary .concept-icon {
+            background: rgba(37, 208, 247, 0.15);
+            border: 2px solid var(--sky-blue);
+            color: var(--sky-blue);
+        }
+
+        .concept-card.secondary .concept-icon {
+            background: rgba(24, 188, 156, 0.15);
+            border: 2px solid var(--mint);
+            color: var(--mint);
+        }
+
+        .concept-card h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .concept-card.primary h3 { color: var(--sky-blue); }
+        .concept-card.secondary h3 { color: var(--mint); }
+
+        .concept-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .concept-arrow {
+            text-align: center;
+            font-size: 28px;
+            color: var(--gold);
+        }
+
+        /* ========== FLOW STEPS ========== */
+        .flow-container {
+            background: var(--gunmetal-light);
+            border: 1px solid var(--gunmetal-lighter);
+            border-radius: 12px;
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flow-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--vermilion), var(--sky-blue), var(--mint), var(--gold));
+        }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 8px;
+        }
+
+        .flow-step:nth-child(1) {
+            background: rgba(252, 54, 52, 0.08);
+            border: 1px solid rgba(252, 54, 52, 0.25);
+        }
+        .flow-step:nth-child(2) {
+            background: rgba(37, 208, 247, 0.08);
+            border: 1px solid rgba(37, 208, 247, 0.25);
+        }
+        .flow-step:nth-child(3) {
+            background: rgba(24, 188, 156, 0.08);
+            border: 1px solid rgba(24, 188, 156, 0.25);
+        }
+        .flow-step:nth-child(4) {
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+        }
+
+        .flow-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .flow-step:nth-child(1) .flow-badge { background: rgba(252, 54, 52, 0.2); color: var(--vermilion); }
+        .flow-step:nth-child(2) .flow-badge { background: rgba(37, 208, 247, 0.2); color: var(--sky-blue); }
+        .flow-step:nth-child(3) .flow-badge { background: rgba(24, 188, 156, 0.2); color: var(--mint); }
+        .flow-step:nth-child(4) .flow-badge { background: rgba(255, 215, 0, 0.2); color: var(--gold); }
+
+        .flow-step h4 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .flow-step .flow-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .flow-step .flow-actions {
+            margin-top: 12px;
+            text-align: left;
+            padding: 0 4px;
+        }
+
+        .flow-step .flow-actions li {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+            list-style: none;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .flow-step .flow-actions li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: inherit;
+        }
+
+        .flow-step:nth-child(1) .flow-actions li::before { color: var(--vermilion); }
+        .flow-step:nth-child(2) .flow-actions li::before { color: var(--sky-blue); }
+        .flow-step:nth-child(3) .flow-actions li::before { color: var(--mint); }
+        .flow-step:nth-child(4) .flow-actions li::before { color: var(--gold); }
+
+        .flow-arrows {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            font-size: 20px;
+            color: var(--text-muted);
+        }
+
+        .flow-arrow:last-child {
+            visibility: hidden;
+        }
+
+        /* ========== WARNING BOX ========== */
+        .warning-box {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: rgba(252, 54, 52, 0.06);
+            border: 1px solid rgba(252, 54, 52, 0.25);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-top: 24px;
+        }
+
+        .warning-icon {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(252, 54, 52, 0.15);
+            border: 2px solid var(--vermilion);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--vermilion);
+        }
+
+        .warning-content h3 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--vermilion);
+            margin-bottom: 6px;
+        }
+
+        .warning-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ========== RULES ========== */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .rule-card {
+            padding: 24px;
+            border-radius: 8px;
+            background: var(--gunmetal-light);
+            border: 1px solid var(--gunmetal-lighter);
+            text-align: center;
+        }
+
+        .rule-card .rule-icon-small {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: rgba(0, 123, 255, 0.12);
+            border: 2px solid var(--azure);
+            color: var(--azure);
+        }
+
+        .rule-card h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--azure);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .rule-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ========== DEVICE DIAGRAM ========== */
+        .device-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            padding: 36px;
+            background: var(--gunmetal-light);
+            border: 1px solid var(--gunmetal-lighter);
+            border-radius: 12px;
+            margin-top: 24px;
+        }
+
+        .device {
+            text-align: center;
+            padding: 20px 28px;
+            border-radius: 8px;
+        }
+
+        .device.is-primary {
+            background: rgba(37, 208, 247, 0.08);
+            border: 2px solid rgba(37, 208, 247, 0.35);
+        }
+
+        .device.is-secondary {
+            background: rgba(24, 188, 156, 0.05);
+            border: 1px solid rgba(24, 188, 156, 0.2);
+        }
+
+        .device-emoji {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+
+        .device-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .device.is-primary .device-label { color: var(--sky-blue); }
+        .device.is-secondary .device-label { color: var(--mint); }
+
+        .device-sublabel {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .arrow-sync {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            color: var(--gold);
+        }
+
+        .arrow-sync .arrow-line {
+            font-size: 24px;
+        }
+
+        .arrow-sync .arrow-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            text-align: center;
+            padding: 48px 40px;
+            background: linear-gradient(135deg, var(--gunmetal-light), var(--gunmetal-lighter));
+            border-radius: 12px;
+            border: 1px solid var(--gunmetal-lighter);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--vermilion));
+        }
+
+        .cta-section h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .cta-section h2 span {
+            color: var(--sky-blue);
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .cta-emphasis {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid var(--gunmetal-lighter);
+            margin-top: 48px;
+        }
+
+        .footer-links {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--sky-blue);
+            text-decoration: none;
+        }
+
+        .footer-brand {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        @media print {
+            body { width: 1200px; }
+            body::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-brand">LeanProductivity</div>
+            <h1>Sync <span>Settings &amp; Plugins</span><br>Across Devices</h1>
+            <p class="header-subtitle">One primary device. Every other device pulls from it.</p>
+        </header>
+
+        <!-- CORE CONCEPT -->
+        <section class="concept-box">
+            <div class="concept-header">
+                <h2>THE PRIMARY-SECONDARY MODEL</h2>
+            </div>
+            <div class="concept-grid">
+                <div class="concept-card primary">
+                    <div class="concept-icon">&#9733;</div>
+                    <h3>Primary</h3>
+                    <p>The ONE device where you change settings, install plugins, and customize themes.</p>
+                </div>
+                <div class="concept-arrow">&rarr;</div>
+                <div class="concept-card secondary">
+                    <div class="concept-icon">&#8631;</div>
+                    <h3>Secondary</h3>
+                    <p>Every other device. They receive settings - never push their own.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4-STEP FLOW -->
+        <section class="section">
+            <div class="section-label">The Process</div>
+            <h2 class="section-title">4 Steps to Consistent Settings</h2>
+            <div class="section-divider"></div>
+            <div class="flow-container">
+                <div class="flow-grid">
+                    <div class="flow-step">
+                        <div class="flow-badge">STEP 1</div>
+                        <h4>Reset All</h4>
+                        <p class="flow-desc">Clean slate across every device</p>
+                        <ul class="flow-actions">
+                            <li>Disable Settings Sync</li>
+                            <li>Do this on ALL devices</li>
+                            <li>Close Obsidian</li>
+                        </ul>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-badge">STEP 2</div>
+                        <h4>Configure Primary</h4>
+                        <p class="flow-desc">Set up your one source of truth</p>
+                        <ul class="flow-actions">
+                            <li>Open Obsidian</li>
+                            <li>Set all preferences</li>
+                            <li>Enable Settings Sync</li>
+                            <li>Wait for full upload</li>
+                        </ul>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-badge">STEP 3</div>
+                        <h4>Connect Others</h4>
+                        <p class="flow-desc">Secondary devices pull settings</p>
+                        <ul class="flow-actions">
+                            <li>Close Obsidian</li>
+                            <li>Delete .obsidian folder</li>
+                            <li>Open Obsidian</li>
+                            <li>Enable Settings Sync</li>
+                        </ul>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-badge">STEP 4</div>
+                        <h4>Keep It Clean</h4>
+                        <p class="flow-desc">Ongoing maintenance rules</p>
+                        <ul class="flow-actions">
+                            <li>Only change on primary</li>
+                            <li>If conflict: redo Step 3</li>
+                            <li>Keep Sync enabled</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="flow-arrows">
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-arrow">&rarr;</div>
+                    <div class="flow-arrow"></div>
+                </div>
+            </div>
+
+            <!-- WARNING -->
+            <div class="warning-box">
+                <div class="warning-icon">!</div>
+                <div class="warning-content">
+                    <h3>Order Matters</h3>
+                    <p>The primary device MUST finish uploading before you enable sync on any secondary device. If a secondary syncs first, it pushes its own settings to the cloud and overwrites your configuration.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEVICE DIAGRAM -->
+        <section class="section">
+            <div class="section-label">Visual Model</div>
+            <h2 class="section-title">How Settings Flow</h2>
+            <div class="section-divider"></div>
+            <div class="device-diagram">
+                <div class="device is-primary">
+                    <div class="device-emoji">&#128187;</div>
+                    <div class="device-label">Primary</div>
+                    <div class="device-sublabel">Windows Laptop</div>
+                </div>
+
+                <div class="arrow-sync">
+                    <span class="arrow-line">&rarr;</span>
+                    <span class="arrow-text">uploads</span>
+                </div>
+
+                <div class="device" style="padding: 20px 28px; background: rgba(255, 215, 0, 0.06); border: 1px dashed rgba(255, 215, 0, 0.3); border-radius: 8px;">
+                    <div class="device-emoji">&#9729;</div>
+                    <div class="device-label" style="color: var(--gold);">Cloud</div>
+                    <div class="device-sublabel">Obsidian Sync</div>
+                </div>
+
+                <div class="arrow-sync">
+                    <span class="arrow-line">&rarr;</span>
+                    <span class="arrow-text">pulls</span>
+                </div>
+
+                <div class="device is-secondary">
+                    <div class="device-emoji">&#128187;</div>
+                    <div class="device-label">Secondary</div>
+                    <div class="device-sublabel">Other Laptop</div>
+                </div>
+
+                <div class="arrow-sync">
+                    <span class="arrow-line" style="visibility: hidden;">&rarr;</span>
+                    <span class="arrow-text">&nbsp;</span>
+                </div>
+
+                <div class="device is-secondary">
+                    <div class="device-emoji">&#128241;</div>
+                    <div class="device-label">Secondary</div>
+                    <div class="device-sublabel">Phone</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONGOING RULES -->
+        <section class="section">
+            <div class="section-label">Going Forward</div>
+            <h2 class="section-title">Rules to Keep It Working</h2>
+            <div class="section-divider"></div>
+            <div class="rules-grid">
+                <div class="rule-card">
+                    <div class="rule-icon-small">&#9881;</div>
+                    <h4>Settings Changes</h4>
+                    <p>Only change settings, themes, and hotkeys on your primary device.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon-small">&#10010;</div>
+                    <h4>Plugin Installs</h4>
+                    <p>Install and configure plugins on the primary device only. They sync automatically.</p>
+                </div>
+                <div class="rule-card">
+                    <div class="rule-icon-small">&#8634;</div>
+                    <h4>If Something Breaks</h4>
+                    <p>On the affected device: close Obsidian, delete .obsidian, reopen, enable sync.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Pick Your <span>Primary</span> Device</h2>
+            <p>Set it up once. Every other device follows automatically.</p>
+            <div class="cta-emphasis">No third-party tools. Just Obsidian Sync + sequencing.</div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-links">
+                Full guide: sascha-kasper.com
+                &nbsp;&middot;&nbsp;
+                YouTube: @LeanProductivity
+            </div>
+            <div class="footer-brand">LeanProductivity &middot; As much as necessary, as little as possible.</div>
+        </footer>
+
+    </div>
+</body>
+</html>

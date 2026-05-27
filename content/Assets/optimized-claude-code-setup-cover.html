@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=800">
+    <meta name="author" content="LeanProductivity - Sascha D. Kasper">
+    <title>Optimized Claude Code Setup - Cover</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            width: 800px;
+            height: 800px;
+            background: linear-gradient(135deg, #1B2631 0%, #243342 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Source Sans 3', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, #5D6D7E 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .accent-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #25D0F7, #FC3634, #25D0F7);
+        }
+
+        .big-number {
+            font-size: 140px;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, #25D0F7 0%, #FC3634 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-size: 48px;
+            font-weight: 700;
+            color: #E8ECF0;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .subtext {
+            font-size: 20px;
+            color: #8A9BAE;
+            max-width: 600px;
+            line-height: 1.4;
+            margin-bottom: 40px;
+        }
+
+        .icon-box {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .footer-badge {
+            display: inline-block;
+            background: rgba(252, 54, 52, 0.2);
+            color: #FC3634;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        @media print {
+            body { width: 800px; height: 800px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="accent-bar"></div>
+    <div class="container">
+        <div class="big-number">60-90%</div>
+        <div class="label">Cost Reduction</div>
+        <div class="icon-box">⬇️</div>
+        <div class="subtext">Cut Claude Code costs with smart model routing, context compression, and session memory</div>
+        <div class="footer-badge">Setup Guide Inside</div>
+    </div>
+</body>
+</html>
