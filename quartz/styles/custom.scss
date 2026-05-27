@@ -1,3 +1,58 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// ── Font overrides ──────────────────────────────────────────────────────────
+// Fonts are loaded via theme.ts with cdnCaching: false (inlined into CSS)
+:root {
+  --bodyFont: "JetBrains Mono", monospace !important;
+  --headerFont: "JetBrains Mono", monospace !important;
+  --codeFont: "JetBrains Mono", monospace !important;
+}
+
+// ── Header bar styling ──────────────────────────────────────────────────────
+header {
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--lightgray);
+  background-color: var(--light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0 !important;
+  height: 3.5rem;
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+// Page title in header acts as logo/home link
+header .page-title {
+  font-family: var(--headerFont);
+  font-size: 1rem;
+  font-weight: 700;
+  white-space: nowrap;
+  margin-right: auto;
+  color: var(--dark);
+}
+
+// Push toolbar (search + darkmode) to the right
+header .flex-component {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+// ── Full-width content area ──────────────────────────────────────────────────
+.page[data-frame="full-width"] .center {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+// Dark mode header
+:root[saved-theme="dark"] header {
+  background-color: var(--lightgray);
+  border-color: var(--gray);
+}
+
+:root[saved-theme="dark"] header .page-title {
+  color: var(--dark);
+}

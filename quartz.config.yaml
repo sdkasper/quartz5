@@ -15,7 +15,7 @@ configuration:
     - .obsidian
   theme:
     fontOrigin: googleFonts
-    cdnCaching: true
+    cdnCaching: false
     typography:
       header: JetBrains Mono
       body: JetBrains Mono
@@ -82,8 +82,9 @@ plugins:
     enabled: true
     order: 50
     layout:
-      position: right
-      priority: 30
+      position: afterBody
+      priority: 10
+      condition: not-index
   - source: github:quartz-community/crawl-links
     enabled: true
     options:
@@ -172,8 +173,9 @@ plugins:
   - source: github:quartz-community/backlinks
     enabled: true
     layout:
-      position: right
-      priority: 50
+      position: afterBody
+      priority: 20
+      condition: not-index
   - source: github:quartz-community/article-title
     enabled: true
     layout:
@@ -279,20 +281,26 @@ layout:
       gap: 0.5rem
   byPageType:
     "404":
+      template: minimal
       positions:
         beforeBody: []
         left: []
         right: []
-    content: {}
+    content:
+      template: full-width
     folder:
+      template: full-width
       exclude:
         - reader-mode
       positions:
         right: []
     tag:
+      template: full-width
       exclude:
         - reader-mode
       positions:
         right: []
-    canvas: {}
-    bases: {}
+    canvas:
+      template: full-width
+    bases:
+      template: full-width
