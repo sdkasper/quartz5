@@ -56,7 +56,7 @@ plugins:
     options:
       theme:
         light: github-light
-        dark: github-dark
+        dark: one-dark-pro
       keepBackground: false
     order: 20
   - source: github:quartz-community/obsidian-flavored-markdown
@@ -152,19 +152,19 @@ plugins:
   - source: github:quartz-community/tag-page
     enabled: true
   - source: github:quartz-community/explorer
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50
   - source: github:quartz-community/graph
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
   - source: github:quartz-community/search
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 20
       group: toolbar
       groupOptions:
@@ -192,18 +192,18 @@ plugins:
   - source: github:quartz-community/page-title
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 10
   - source: github:quartz-community/darkmode
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 30
       group: toolbar
   - source: github:quartz-community/reader-mode
     enabled: true
     layout:
-      position: left
+      position: header
       priority: 35
       group: toolbar
   - source: github:quartz-community/breadcrumbs
@@ -224,8 +224,8 @@ plugins:
     enabled: true
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        GitHub: https://github.com/sdkasper
+        YouTube: https://www.youtube.com/@leanproductivity
   - source: github:quartz-community/recent-notes
     enabled: false
   - source: github:quartz-community/spacer
@@ -233,7 +233,7 @@ plugins:
     options: {}
     order: 25
     layout:
-      position: left
+      position: header
       priority: 25
       display: mobile-only
   - source: github:quartz-community/bases-page
