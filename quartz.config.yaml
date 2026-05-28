@@ -194,13 +194,13 @@ plugins:
   - source: ./plugins/site-nav
     enabled: true
     layout:
-      position: header
+      position: beforeBody
       priority: 5
 
   - source: ./plugins/homepage-nav
     enabled: true
     layout:
-      position: right
+      position: afterBody
       priority: 5
 
   - source: github:quartz-community/page-title

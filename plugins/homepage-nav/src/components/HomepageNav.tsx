@@ -12,6 +12,7 @@ const LINKS = [
 
 export default (() => {
   const HomepageNav: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
+    // Only render on index page
     if (fileData.slug !== "index") return null
 
     return (
