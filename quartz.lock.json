@@ -151,6 +151,12 @@
       "commit": "0d448f38a24c568c5539ff2cd57d813293430ccd",
       "installedAt": "2026-05-27T12:09:39.484Z"
     },
+    "homepage-nav": {
+      "source": "./plugins/homepage-nav",
+      "resolved": "D:\\GitProjects\\quartz5\\plugins\\homepage-nav",
+      "commit": "local",
+      "installedAt": "2026-05-28T07:08:00.633Z"
+    },
     "latex": {
       "source": "github:quartz-community/latex",
       "resolved": "https://github.com/quartz-community/latex.git",
@@ -233,6 +239,12 @@
       "resolved": "https://github.com/quartz-community/search.git",
       "commit": "e0ebef9f80b23a015a9252d4ab98b889b08dc8b7",
       "installedAt": "2026-05-27T12:09:44.230Z"
+    },
+    "site-nav": {
+      "source": "./plugins/site-nav",
+      "resolved": "D:\\GitProjects\\quartz5\\plugins\\site-nav",
+      "commit": "local",
+      "installedAt": "2026-05-28T07:08:00.632Z"
     },
     "spacer": {
       "source": "github:quartz-community/spacer",

@@ -23,14 +23,49 @@ header {
   gap: 1rem;
 }
 
-// Page title in header acts as logo/home link
-header .page-title {
-  font-family: var(--headerFont);
-  font-size: 1rem;
+// Site nav bar (logo + pills + toolbar)
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.site-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
   font-weight: 700;
-  white-space: nowrap;
-  margin-right: auto;
+  font-size: 1rem;
   color: var(--dark);
+  white-space: nowrap;
+
+  img {
+    border-radius: 4px;
+  }
+}
+
+.site-nav-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.site-nav-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--lightgray);
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--dark);
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--highlight);
+    border-color: var(--secondary);
+  }
 }
 
 // Push toolbar (search + darkmode) to the right
@@ -45,6 +80,28 @@ header .flex-component {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 1.5rem 2rem;
+}
+
+// ── Homepage nav (social sidebar) ───────────────────────────────────────────
+.homepage-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.homepage-nav a {
+  display: block;
+  text-decoration: none;
+  color: var(--darkgray);
+  font-size: 0.9rem;
+  padding: 0.25rem 0;
+
+  &:hover {
+    color: var(--secondary);
+  }
 }
 
 // Dark mode header

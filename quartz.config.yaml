@@ -191,11 +191,20 @@ plugins:
     layout:
       position: beforeBody
       priority: 30
-  - source: github:quartz-community/page-title
+  - source: ./plugins/site-nav
     enabled: true
     layout:
       position: header
-      priority: 10
+      priority: 5
+
+  - source: ./plugins/homepage-nav
+    enabled: true
+    layout:
+      position: right
+      priority: 5
+
+  - source: github:quartz-community/page-title
+    enabled: false
   - source: github:quartz-community/darkmode
     enabled: true
     layout:
